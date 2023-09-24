@@ -63,6 +63,10 @@ class LinkedList {
 
     return count;
   }
+
+  isEmpty() {
+   return !this.head ? true : false;
+  }
 }
 
 // let previousNode = null;
