@@ -67,6 +67,17 @@ class LinkedList {
   isEmpty() {
    return !this.head ? true : false;
   }
+
+  search(key) {
+    let currentNode = this.head;
+
+    while(currentNode) {
+      if (currentNode.data === key) {
+        return currentNode;
+      }
+      currentNode = currentNode.next;
+    }
+  }
 }
 
 // let previousNode = null;
