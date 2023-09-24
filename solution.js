@@ -78,6 +78,20 @@ class LinkedList {
       currentNode = currentNode.next;
     }
   }
+
+  getKth(index) {
+    let currentNode = this.head;
+    let currentIndex = 1;
+    
+    while (currentNode) {
+      if (currentIndex === index) {
+        return currentNode
+      }
+      currentNode = currentNode.next;
+      currentIndex++;
+    }
+    return null;
+  }
 }
 
 // let previousNode = null;
