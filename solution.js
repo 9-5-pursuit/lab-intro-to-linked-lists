@@ -8,8 +8,9 @@ class Node {
 }
 
 class LinkedList {
-  constructor(head = null) {
-    this.head = head;
+  constructor() {
+    this.head = null;
+    this.tail = null;
   }
 
   printListData() {
@@ -24,37 +25,47 @@ class LinkedList {
   }
 
   insert(data) {
-    // get current node
-    let currentNode = this.head;
-
     // make a new node
     let newNode = new Node(data);
 
-    if (!currentNode) {
-      // If there is no list, update the head immediately
-      currentNode = newNode;
+    if (!this.head) {
+      // If there is no list, update both head and tail immediately
+      this.head = newNode;
+      this.tail = newNode;
     } else {
-      // Save the current list in "next"
-      newNode.next = currentNode;
+      // Save the current head in "next" of the new node
+      newNode.next = this.head;
       // Update the head to the new node
-      currentNode = newNode;
+      this.head = newNode;
     }
+  }
+
+  getFirst() {
+    return this.head;
+  }
+
+  getLast() {
+    return this.tail;
+  }
+
+  clear() {
+    this.head = null;
   }
 }
 
-let previousNode = new Node(nums)
-let numList = new LinkedList(previousNode)
+// let previousNode = null;
+// for (let i = 0; i < nums.length; i++) {
+//   // create a new node for each number
+//   let currentNode = new Node(nums[i]);
+//   // setup the next property for each node
+//   currentNode.next = previousNode;
+//   // update the node we're working with
+//   previousNode = currentNode; // Update previousNode to the current node
+// }
+// let numList = new LinkedList(previousNode);
 
-for (let i = 0; i < nums.length; i++) {
-  // create a new node for each month
-  let currentNode = new Node(nums[i]);
-  // setup the next property for each node
-  previousNode.next = currentNode;
-  // update the node we're working with
-  previousNode = currentNode;
-}
-
-numList.printListData();
+// console.log(numList)
+// numList.printListData()
 
 module.exports = {
   Node,
