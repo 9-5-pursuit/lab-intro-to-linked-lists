@@ -65,13 +65,13 @@ class LinkedList {
   }
 
   isEmpty() {
-   return !this.head ? true : false;
+    return !this.head ? true : false;
   }
 
   search(key) {
     let currentNode = this.head;
 
-    while(currentNode) {
+    while (currentNode) {
       if (currentNode.data === key) {
         return currentNode;
       }
@@ -82,31 +82,41 @@ class LinkedList {
   getKth(index) {
     let currentNode = this.head;
     let currentIndex = 1;
-    
+
     while (currentNode) {
       if (currentIndex === index) {
-        return currentNode
+        return currentNode;
       }
       currentNode = currentNode.next;
       currentIndex++;
     }
     return null;
   }
+
+  getKthToLast(k) {
+
+    let firstPointer = this.head.next;
+    let secondPointer = this.head;
+
+    // Move the first pointer k nodes ahead
+    for (let i = 0; i < k; i++) {
+      if (firstPointer === null) {
+        // Handle the case where k is greater than the length of the list
+        return null;
+      }
+      firstPointer = firstPointer.next;
+    }
+
+    // Move both pointers until the first pointer reaches the end
+    while (firstPointer !== null) {
+      firstPointer = firstPointer.next;
+      secondPointer = secondPointer.next;
+    }
+
+    // At this point, the second pointer is at the kth to last element
+    return secondPointer;
+  }
 }
-
-// let previousNode = null;
-// for (let i = 0; i < nums.length; i++) {
-//   // create a new node for each number
-//   let currentNode = new Node(nums[i]);
-//   // setup the next property for each node
-//   currentNode.next = previousNode;
-//   // update the node we're working with
-//   previousNode = currentNode; // Update previousNode to the current node
-// }
-// let numList = new LinkedList(previousNode);
-
-// console.log(numList)
-// numList.printListData()
 
 module.exports = {
   Node,
