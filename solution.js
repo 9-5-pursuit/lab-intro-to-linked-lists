@@ -135,6 +135,38 @@ class LinkedList {
       previous.next = current.next;
     }
   }
+
+  toArray() {
+    if (!this.head) return;
+    let currentNode = this.head;
+    let array = []
+
+    while (currentNode) {
+      array.push(currentNode.data)
+      currentNode = currentNode.next;
+    }
+    return array;
+  }
+
+
+  containsDuplicates() {
+    const seenValues = new Set();
+    let currentNode = this.head;
+
+    while (currentNode) {
+      const data = currentNode.data;
+
+      if (seenValues.has(data)) {
+        // Duplicate found
+        return true;
+      }
+
+      seenValues.add(data);
+      currentNode = currentNode.next;
+    }
+    return false;
+
+}
 }
 
 module.exports = {
