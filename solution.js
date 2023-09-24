@@ -94,7 +94,6 @@ class LinkedList {
   }
 
   getKthToLast(k) {
-
     let firstPointer = this.head.next;
     let secondPointer = this.head;
 
@@ -115,6 +114,26 @@ class LinkedList {
 
     // At this point, the second pointer is at the kth to last element
     return secondPointer;
+  }
+
+  delete(index) {
+    if (!this.head) return;
+
+    let current = this.head;
+    let previous;
+    let count = 0;
+
+    if (index === 0) {
+      this.head = current.next;
+    } else {
+      while (count < index) {
+        count++;
+        previous = current;
+        current = current.next;
+      }
+
+      previous.next = current.next;
+    }
   }
 }
 
