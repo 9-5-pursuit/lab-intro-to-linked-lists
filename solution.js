@@ -66,7 +66,55 @@ class LinkedList {
     return this.head.data;
   }
 
-  
+  getLast() {
+    if (!this.head) return console.log("List is empty");
+
+    let currentNode = this.head;
+
+    while (currentNode) {
+      currentNode = currentNode.next;
+    }
+
+    return currentNode;
+  }
+
+  search(key) {
+    if (!this.head) return console.log("List is empty");
+
+    let currentNode = this.head;
+
+    while (currentNode.next) {
+      if (currentNode !== data) {
+        let currentNode = currentNode.next
+      } else {
+        return currentNode
+      }
+    }
+
+    return null;
+  }
+
+  getKth(k) {
+    if (!this.head) return console.log("List is empty");
+    
+    if (k < 0) {
+      return "invalid number";
+    }
+
+    let count = 0;
+    let currentNode = this.head;
+
+    while(currentNode) {
+      if (k === count) {
+        return currentNode;
+      } else {
+        count++;
+        currentNode = currentNode.next;
+      }
+    }
+
+    return null;
+  }
 }
 
 module.exports = {
