@@ -54,8 +54,8 @@ class LinkedList {
     // Is the list empty?
     if (!this.head) return console.log("List is empty!");
 
-    // get the data of the node you want to delete(left side of the box chart)
-    // let nodeData = this.data;
+    let currentNode = this.head;
+    let counter = 0;
 
     //look throught the array to find the node you are looking for
     // If the currentNode doesn't match the data and it has a next value,
@@ -110,11 +110,10 @@ class LinkedList {
   }
 
   getKth(k) {
-
     let count = 0;
     let currentNode = this.head;
 
-    while(currentNode) {
+    while (currentNode) {
       if (k - 1 === count) {
         return currentNode;
       } else {
@@ -125,11 +124,11 @@ class LinkedList {
   }
 
   getKthToLast(k) {
-    let size = this.size()
+    let size = this.size();
 
-    let last = size - k
+    let last = size - k;
 
-    return this.getKth(last)
+    return this.getKth(last);
   }
 
   isEmpty() {
@@ -159,8 +158,18 @@ class LinkedList {
   }
 
   containsDuplicates() {
+    let nodeArray = this.toArray();
 
+    for (let i = 0; i < nodeArray.length; i++) {
+      if (nodeArray[i]) {
 
+        return true
+      } else {
+
+      }
+    }
+
+    return false;
   }
 }
 
