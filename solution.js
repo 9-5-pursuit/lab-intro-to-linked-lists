@@ -1,5 +1,46 @@
 const { nums, words } = require("./data/data.js");
 
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+class LinkedList {
+  constructor(head) {
+    this.head = head;
+  }
+
+  insert(data) {
+
+    let currentNode = this.head;
+    let newNode = new Node(data);
+
+    if (!currentNode) {
+      currentNode = newNode;
+    } else {
+      newNode.next = currentNode;
+
+      currentNode = newNode;
+    }
+  }
+
+  size() {
+    let count = 0;
+    let currentNode = this.head;
+
+    while(currentNode) {
+      count++;
+      currentNode = currentNode.next;
+    }
+
+    return count;
+  }
+
+  
+}
+
 module.exports = {
   Node,
   LinkedList,
