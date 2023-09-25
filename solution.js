@@ -45,13 +45,15 @@ class LinkedList {
     return this.head
   }
 
-  getLast() {
+  getLast(args) {
+    let arr = [];
     let head = this.head;
     while(head) {
+      arr.push(head.data)
       if (!head.next) break;
       head = head.next
     }
-    return head;
+    return args ? arr : head;
   }
 
   search(key) {
@@ -70,6 +72,21 @@ class LinkedList {
     }
     return null;
   }
+
+  getKthToLast(idx) {
+    let s = this.size();
+    let end = s-idx
+    return this.getKth(end);
+  }
+
+  isEmpty() {return this.head==null }
+
+  clear() { this.head=null }
+
+  toArray() {
+    return this.getLast(true)
+  }
+
 }
 
 module.exports = {
