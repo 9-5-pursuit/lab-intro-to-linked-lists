@@ -92,7 +92,7 @@ class LinkedList {
   }
 
   containsDuplicates() {
-    return this.getLast(1).length !== [...new Set(this.getLast(1))].length
+    return this.getLast(1).length !== new Set(this.getLast(1)).size
   }
 }
 
