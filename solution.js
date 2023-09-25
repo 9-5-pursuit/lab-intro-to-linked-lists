@@ -42,32 +42,32 @@ class LinkedList {
   }
 
   getFirst() {
-    return this.head
+    return this.head;
   }
 
   getLast(args) {
     let arr = [];
     let head = this.head;
-    while(head) {
-      arr.push(head.data)
+    while (head) {
+      arr.push(head.data);
       if (!head.next) break;
-      head = head.next
+      head = head.next;
     }
     return args ? arr : head;
   }
 
   search(key) {
     let head = this.head;
-    while(head) {
-      if (head.data = key) return head;
-      head = head.next
+    while (head) {
+      if ((head.data = key)) return head;
+      head = head.next;
     }
   }
   getKth(idx) {
-    let c = 0
+    let c = 0;
     let head = this.head;
-    while (head && ++c){
-      if (c==idx) return head; 
+    while (head && ++c) {
+      if (c == idx) return head;
       head = head.next;
     }
     return null;
@@ -75,18 +75,27 @@ class LinkedList {
 
   getKthToLast(idx) {
     let s = this.size();
-    let end = s-idx
+    let end = s - idx;
     return this.getKth(end);
   }
 
-  isEmpty() {return this.head==null }
-
-  clear() { this.head=null }
-
-  toArray() {
-    return this.getLast(true)
+  isEmpty() {
+    return this.head == null;
   }
 
+  clear() {
+    this.head = null;
+  }
+
+  toArray() {
+    return this.getLast(true);
+  }
+
+  containsDuplicates() {
+    return this.getLast(1).length == [...new Set(this.getLast(1))].length
+      ? false
+      : true;
+  }
 }
 
 module.exports = {
