@@ -59,7 +59,7 @@ class LinkedList {
   search(key) {
     let head = this.head;
     while (head) {
-      if ((head.data = key)) return head;
+      if (head.data == key) return head;
       head = head.next;
     }
   }
