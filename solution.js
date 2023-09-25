@@ -40,6 +40,36 @@ class LinkedList {
       curr = curr.next;
     }
   }
+
+  getFirst() {
+    return this.head
+  }
+
+  getLast() {
+    let head = this.head;
+    while(head) {
+      if (!head.next) break;
+      head = head.next
+    }
+    return head;
+  }
+
+  search(key) {
+    let head = this.head;
+    while(head) {
+      if (head.data = key) return head;
+      head = head.next
+    }
+  }
+  getKth(idx) {
+    let c = 0
+    let head = this.head;
+    while (head && ++c){
+      if (c==idx) return head; 
+      head = head.next;
+    }
+    return null;
+  }
 }
 
 module.exports = {
