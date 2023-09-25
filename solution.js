@@ -13,8 +13,8 @@ class LinkedList {
   }
 
   isEmpty() {
-    if (!this.head) return true
-    else return false
+    if (!this.head) return true;
+    else return false;
   }
 
   insert(data) {
@@ -44,7 +44,7 @@ class LinkedList {
   }
 
   delete(key) {
-    if (this.isEmpty()) return "list is empty"
+    if (this.isEmpty()) return "list is empty";
 
     let currentNode = this.head;
     let counter = 0;
@@ -66,13 +66,13 @@ class LinkedList {
   }
 
   getFirst() {
-    if (this.isEmpty()) return "list is empty"
+    if (this.isEmpty()) return "list is empty";
 
     return this.head.data;
   }
 
   getLast() {
-    if (this.isEmpty()) return "list is empty"
+    if (this.isEmpty()) return "list is empty";
 
     let currentNode = this.head;
 
@@ -84,15 +84,15 @@ class LinkedList {
   }
 
   search(key) {
-    if (this.isEmpty()) return "list is empty"
+    if (this.isEmpty()) return "list is empty";
 
     let currentNode = this.head;
 
     while (currentNode.next) {
       if (currentNode !== data) {
-        let currentNode = currentNode.next
+        let currentNode = currentNode.next;
       } else {
-        return currentNode
+        return currentNode;
       }
     }
 
@@ -100,7 +100,7 @@ class LinkedList {
   }
 
   getKth(k) {
-    if (this.isEmpty()) return "list is empty"
+    if (this.isEmpty()) return "list is empty";
     
     if (k < 0) {
       return "invalid number";
@@ -120,9 +120,9 @@ class LinkedList {
 
     return null;
   }
-
+t
   getKthToLast(k) {
-    if (this.isEmpty()) return "list is empty"
+    if (this.isEmpty()) return "list is empty";
 
     let total = this.size();
 
@@ -159,6 +159,20 @@ class LinkedList {
     }
 
     return nodeArray;
+  }
+
+  containsDuplicates() {
+    let nodeArray = this.nodeArray();
+
+    let currentNode = this.head;
+
+    let containsDuplicates = false;
+
+    while (currentNode) {
+      if (nodeArray.includes(currentNode)) {
+        return !containsDuplicates;
+      }
+    }
   }
 }
 
