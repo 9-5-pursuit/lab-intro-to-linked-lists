@@ -3,36 +3,37 @@ const { nums, words } = require("./data/data.js");
 //class like componets are meant to be capitalized
 class Node {
   //these are the properties of the class
-  constructor(data, next, head) {
+  constructor(data, next) {
     this.data = data;
-    this.next = next;
+    this.next = null;
   }
 }
 
 class LinkedList {
-  constructor(head) {
+  constructor(head = null) {
     this.head = head;
   }
 
-  //these are called methods ----- work just like function
+  //these are called methods ----------------- work just like function
 
   //insert at the head of the list
   insert(data) {
     //get the head of the list
-    let currentFirstNode = this.head;
+    let currentNode = this.head;
+
     //creat a new node
     let newNode = new Node(data);
 
-    if (!currentFirstNode) {
+    if (!currentNode) {
       //if there is no head(first node on the list) new node is now the head
-      currentFirstNode = newNode;
+      this.head = newNode;
     } else {
       //the new Node's(the node you want to insert) next section is now equal
       //to the head of the list you want to add to
-      newNode.next = currentFirstNode;
+      newNode.next = currentNode;
 
       //asign the node you inserted the value of the current first node (the head)
-      currentFirstNode = newNode;
+      this.head = newNode;
     }
   }
 
@@ -54,7 +55,7 @@ class LinkedList {
     if (!this.head) return console.log("List is empty!");
 
     // get the data of the node you want to delete(left side of the box chart)
-    let nodeData = this.data;
+    // let nodeData = this.data;
 
     //look throught the array to find the node you are looking for
     // If the currentNode doesn't match the data and it has a next value,
@@ -74,13 +75,10 @@ class LinkedList {
     for (let i = 1; i < counter; i++) {
       currentNode = currentNode.next;
     }
-    // "Sep".next = "Oct".next
-    // "Sept".next => "Nov"
     currentNode.next = foundNode.next;
-    console.log(currentNode.next);
   }
 
-  getFirst(data) {
+  getFirst() {
     // if( this.data === this.head){
     //   return head
     // }
@@ -102,43 +100,68 @@ class LinkedList {
   }
 
   search(key) {
-    let currentNode = this.head
-    while( currentNode){
-      if(currentNode.data === key){
-        return currentNode
+    let currentNode = this.head;
+    while (currentNode) {
+      if (currentNode.data === key) {
+        return currentNode;
       }
-      currentNode = currentNode.next
+      currentNode = currentNode.next;
     }
   }
 
-  getKth(){
+  getKth(k) {
 
-  }
+    let count = 0;
+    let currentNode = this.head;
 
-  getKthToLast(){
-
-  }
-
-  isEmpty(){
-    if(this.head === undefined){
-      return true
-    }else{
-      return false
+    while(currentNode) {
+      if (k - 1 === count) {
+        return currentNode;
+      } else {
+        count++;
+        currentNode = currentNode.next;
+      }
     }
   }
 
-  clear(){
+  getKthToLast(k) {
+    let size = this.size()
+
+    let last = size - k
+
+    return this.getKth(last)
+  }
+
+  isEmpty() {
+    if (this.head) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  clear() {
     this.head = null;
   }
 
-  toArray(){
+  toArray() {
+    if (this.head === null) return "list is empty";
 
+    let currentNode = this.head;
+
+    let nodeArray = [];
+
+    while (currentNode) {
+      nodeArray.push(currentNode.data);
+      currentNode = currentNode.next;
+    }
+    return nodeArray;
   }
 
-  containsDuplicates(){
+  containsDuplicates() {
+
 
   }
-
 }
 
 module.exports = {
