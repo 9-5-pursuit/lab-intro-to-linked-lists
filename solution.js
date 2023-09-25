@@ -38,6 +38,34 @@ class LinkedList {
     return count;
   }
 
+  delete(key) {
+    if (!this.head) return console.log("List is empty")
+
+    let currentNode = this.head;
+    let counter = 0;
+
+    while (currentNode.data !== key && currentNode.next) {
+      counter ++;
+      currentNode = currentNode.next;
+    }
+
+    let foundNode = currentNode;
+
+    currentNode = this.head;
+
+    for (let i = 1; i < counter; i++) {
+      currentNode = currentNode.next;
+    }
+
+    currentNode.next = foundNode.next;
+  }
+
+  getFirst() {
+    if (!this.head) return console.log("List is empty");
+
+    return this.head.data;
+  }
+
   
 }
 
