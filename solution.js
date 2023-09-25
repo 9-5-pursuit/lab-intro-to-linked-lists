@@ -160,18 +160,22 @@ class LinkedList {
   containsDuplicates() {
     let nodeArray = this.toArray();
 
-    for (let i = 0; i < nodeArray.length; i++) {
-      if (nodeArray[i]) {
+    let frequencyOfObject = {}
+
+    for (const node of nodeArray) {
+      if (frequencyOfObject[node]) {
+
+        frequencyOfObject[node]++
 
         return true
       } else {
 
+        frequencyOfObject[node] = 1
       }
     }
 
     return false;
-  }
-}
+  }}
 
 module.exports = {
   Node,
