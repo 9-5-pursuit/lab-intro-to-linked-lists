@@ -4,6 +4,7 @@ class Node {
   constructor(val){
     this.data = val;
     this.next = null;
+    this.prev = null;
   }
 }
 
@@ -11,16 +12,17 @@ class LinkedList{
   constructor(val){
     this.head = new Node(val);
     this.tail = this.head;
-    this.next = null;
   }
 
   insert(val){
     let newNode = new Node(val);
     newNode.next = this.head;
+    
     this.head = newNode;
-    if(this.tail == null){
-      this.tail = this.head;
+    if(!this.tail || this.tail.data == null){
+      this.tail = newNode;
     }
+    this.head.next.prev = this.head;
   };
 
   size(){
@@ -90,6 +92,21 @@ class LinkedList{
     return current;
   };
 
+  getKthToLast(index){
+    let current = this.tail;
+    let count = 0;
+    if(this.size() - index < 0){
+      return ;
+    }
+    while(current){
+      if(count == index){
+        return current;
+      }
+      current = current.prev;
+      count++;
+    }
+  }
+
   clear(){
     this.head = null;
   };
@@ -124,11 +141,6 @@ class LinkedList{
     return arr;
   }
 }
-
-const linkedlist = new LinkedList(1);
-console.log(linkedlist);
-linkedlist.insert(2);
-console.log(linkedlist.size());
 
 module.exports = {
   Node,
