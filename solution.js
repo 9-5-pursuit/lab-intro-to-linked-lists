@@ -27,7 +27,7 @@ class LinkedList {
     }
     return count;
   }
-
+  
   search(value) {
     let currentNode = this.head;
     while (currentNode !== null && currentNode.data !== value) {
@@ -35,12 +35,15 @@ class LinkedList {
     }
     return currentNode;
   }
+  
   clear() {
     this.head = null;
   }
+  
   getFirst() {
     return this.head;
   }
+  
   getLast() {
     let lastNode = this.head;
     if (lastNode) {
@@ -50,7 +53,20 @@ class LinkedList {
       return lastNode;
     }
   }
+
+  getKth(k) {
+    let node = this.head;
+    for (let i = 0; i < k; i++) {
+      node = node.next;
+    }
+    return node;
+  }
+
+  isEmpty() {
+    return this.head === null;
+  }
 }
+
 
 
 const firstNode = new Node(1);
