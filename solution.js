@@ -75,6 +75,19 @@ class LinkedList {
     }
     return result;
   }
+
+  containsDuplicates() {
+    let valuesSet = new Set();
+    let node = this.head;
+    while (node) {
+      if (valuesSet.has(node.data)) {
+        return true;
+      }
+      valuesSet.add(node.data);
+      node = node.next;
+    }
+    return false;
+  }
   
 }
 
