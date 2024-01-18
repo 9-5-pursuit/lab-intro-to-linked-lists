@@ -71,7 +71,18 @@ class LinkedList {
     return currentNode;
   }
 
-  getKth(k) {}
+  getKth(k) {
+    let count = 0;
+    let node = this.head;
+
+    while (node) {
+      count++;
+      if (count == k) {
+        return node;
+      }
+      node = node.next;
+    }
+  }
 
   getKthToLast() {
     let currentNode = this.head;
@@ -104,7 +115,21 @@ class LinkedList {
     return array;
   }
 
-  constainsDuplicates() {}
+  containsDuplicates() {
+    let valsSeen = {};
+    let node = this.head;
+
+    while (node) {
+      valsSeen[node.data] = (valsSeen[node.data] || 0) + 1;
+
+      if (valsSeen[node.data] > 1) {
+        return true;
+      }
+      node = node.next;
+    }
+
+    return false;
+  }
 }
 
 module.exports = {
