@@ -54,7 +54,7 @@ class LinkedList {
   }
 
   getFirst() {
-    return this.head ? this.head.data : null;
+    return this.head;
   }
 
   getLast() {
@@ -62,7 +62,7 @@ class LinkedList {
     while (current && current.next) {
       current = current.next;
     }
-    return current ? current.data : null;
+    return current;
   }
 
   search(key) {
