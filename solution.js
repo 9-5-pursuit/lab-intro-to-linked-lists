@@ -19,15 +19,14 @@ class LinkedList {
   }
 
   size() {
-      let count = 0;
-      let node = this.head;
-      while(node) {
-         
-          count++
-          node = node.next
-      }
-      return count
-  }
+    let count = 0;
+    let node = this.head;
+    while (node) {
+        count++;
+        node = node.next;
+    }
+    return count;
+}
 
  
   search(value) {
@@ -43,27 +42,54 @@ class LinkedList {
       this.head = null;
   }
   
-  getLast () {
-      let currentNode = this.head;
-
-      while (currentNode && currentNode.next) {
-          currentNode = currentNode.next;
-      }
-      return currentNode
-    
-  }
-
   getFirst() {
       return this.head;
   }
   
+  getLast () {
+      let lastNode = this.head;
+      if(lastNode) {
+        while (lastNode.next) {
+          lastNode = lastNode.next;
+        }
+        return lastNode
+      }
+    }
+
+  
   insert() {}
   
-  delete(node) {}
-  
+  delete(data) {
+    if (!this.head) {
+        return;
+    }
+
+    if (this.head.data === data) {
+        this.head = this.head.next;
+        return;
+    }
+
+    let currentNode = this.head;
+    while (currentNode.next && currentNode.next.data !== data) {
+        currentNode = currentNode.next;
+    }
+
+    if (currentNode.next) {
+        currentNode.next = currentNode.next.next;
+    }
+}
+
 }
 
 const wordList = new LinkedList(firstNode);
+
+
+
+
+
+
+
+const numList = new LinkedList(secondNode)
 
 
 
