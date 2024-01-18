@@ -54,7 +54,7 @@ You will
   - `size`
   - `delete` by key
   - `getFirst` element
-  - `getLast` element
+  - `getLast` element 
   - `search` an element by key and return data
   - `getKth` retrieve kth element
   - `getKthToLast` retrieve kth from last element
