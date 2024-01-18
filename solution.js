@@ -28,6 +28,14 @@ class LinkedList {
     return count;
   }
 
+  search(value) {
+    let currentNode = this.head;
+    while (currentNode !== null && currentNode.data !== value) {
+      currentNode = currentNode.next;
+    }
+    return currentNode;
+  }
+
  
  
 
