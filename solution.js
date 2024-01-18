@@ -78,11 +78,11 @@ class LinkedList {
     let current = this.head;
     for (let i = 0; i < k; i++) {
       if (!current) {
-        return null;
+        return;
       }
       current = current.next;
     }
-    return current ? current.data : null;
+    return current;
   }
 
   getKthToLast(k) {
@@ -101,7 +101,7 @@ class LinkedList {
       fast = fast.next;
     }
 
-    return slow ? slow.data : null;
+    return slow;
   }
 
   isEmpty() {
