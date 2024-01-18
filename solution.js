@@ -15,18 +15,54 @@ firstNode.next = secondNode;
 
 class LinkedList {
   constructor(head = null) {
-    this.head = head;
+      this.head = head
   }
+
   size() {
-    let count = 0;
-    let node = this.head;
-    while (node) {
-      count++;
-      node = node.next;
-    }
-    return count;
+      let count = 0;
+      let node = this.head;
+      while(node) {
+         
+          count++
+          node = node.next
+      }
+      return count
   }
+
+ 
+  search(value) {
+      
+      let currentNode = this.head;
+      while (currentNode !== null && currentNode.data !== value) {
+          currentNode = currentNode.next
+      }
+      return currentNode
+  }
+
+  clear() {
+      this.head = null;
+  }
+  
+  getLast () {
+      let currentNode = this.head;
+
+      while (currentNode && currentNode.next) {
+          currentNode = currentNode.next;
+      }
+      return currentNode
+    
+  }
+
+  getFirst() {
+      return this.head;
+  }
+  
+  insert() {}
+  
+  delete(node) {}
+  
 }
+
 const wordList = new LinkedList(firstNode);
 
 
