@@ -7,9 +7,7 @@ class Node {
   }
 }
 
-const firstNode = new Node(1);
-const secondNode = new Node(2);
-firstNode.next = secondNode;
+
 
 // console.log(firstNode);
 
@@ -81,15 +79,12 @@ class LinkedList {
 
 }
 
+
+const firstNode = new Node(1);
+const secondNode = new Node(2);
+
 const wordList = new LinkedList(firstNode);
-
-
-
-
-
-
-
-const numList = new LinkedList(secondNode)
+const numList = new LinkedList(secondNode);
 
 
 
