@@ -38,11 +38,13 @@ class LinkedList {
   clear() {
     this.head = null;
   }
+  getFirst() {
+    return this.head;
+  }
+
 
  
- 
-
-}
+ }
 
 
 const firstNode = new Node(1);
