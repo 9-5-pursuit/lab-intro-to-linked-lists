@@ -80,7 +80,7 @@ class LinkedList {
       if (!current) {
         return;
       }
-      current = current.next;
+      current === current.next;
     }
     return current;
   }
