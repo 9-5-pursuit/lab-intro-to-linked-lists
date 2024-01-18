@@ -88,6 +88,28 @@ class LinkedList {
     }
     return false;
   }
+
+  delete(data) {
+    if (!this.head) {
+      return;
+    }
+
+    if (this.head.data === data) {
+      this.head = this.head.next;
+      return;
+    }
+
+    let currentNode = this.head;
+    while (currentNode.next && currentNode.next.data !== data) {
+      currentNode = currentNode.next;
+    }
+
+    if (currentNode.next) {
+      currentNode.next = currentNode.next.next;
+    }
+  }
+
+
   
 }
 
