@@ -65,6 +65,17 @@ class LinkedList {
   isEmpty() {
     return this.head === null;
   }
+
+  toArray() {
+    let result = [];
+    let node = this.head;
+    while (node) {
+      result.push(node.data);
+      node = node.next;
+    }
+    return result;
+  }
+  
 }
 
 
