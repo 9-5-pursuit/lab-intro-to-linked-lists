@@ -14,5 +14,5 @@ const words = [
 
 module.exports = {
   nums,
-  words,
+  words
 };
