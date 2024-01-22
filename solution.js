@@ -12,10 +12,12 @@ class LinkedList {
       this.head = head
   }
 
-  insert(data) {
-    const newNode = new Node(data);
-    newNode.next = this.head;
-    this.head = newNode;
+  insert(node) {
+    let newNode = new Node(node)
+    let currentNode = this.head
+
+    this.head = newNode
+    newNode.next = currentNode
   }
 
   size() {
@@ -55,11 +57,25 @@ class LinkedList {
   }
 
   getKth(k) {
-    let node = this.head;
-    for (let i = 0; i < k; i++) {
-      node = node.next;
+    let count = 1
+    let currentNode = this.head
+    while(currentNode) {
+      if (count===k)
+        return currentNode
+      count++
+      currentNode = currentNode.next
     }
-    return node;
+  }
+
+  getKthToLast(k) {
+    let count = 1
+    let currentNode = this.head
+    let target = this.size() - k
+    while(currentNode != null && count < target){
+      currentNode = currentNode.next
+      count++
+    }
+    return currentNode
   }
 
   isEmpty() {
@@ -115,11 +131,11 @@ class LinkedList {
 
 
 
-const firstNode = new Node(1);
-const secondNode = new Node(2);
+// const firstNode = new Node(1);
+// const secondNode = new Node(2);
 
-const wordList = new LinkedList(firstNode);
-const numList = new LinkedList(secondNode);
+// const wordList = new LinkedList(firstNode);
+// const numList = new LinkedList(secondNode);
 
 
 
